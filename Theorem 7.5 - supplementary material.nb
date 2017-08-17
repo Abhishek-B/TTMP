@@ -1,0 +1,767 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     25649,        758]
+NotebookOptionsPosition[     23832,        690]
+NotebookOutlinePosition[     24242,        708]
+CellTagsIndexPosition[     24199,        705]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Rank 6 analysis - Section 7\n",
+ StyleBox["CASE: Y^2=1-X^2", "Subtitle"]
+}], "Title",
+ CellChangeTimes->{{3.6823083966431417`*^9, 3.682308423169084*^9}, {
+  3.682393477654975*^9, 3.6823934999791203`*^9}}],
+
+Cell["\<\
+We denote \[Beta]00 = \[Beta]_ {1}, \[Beta]10 = \[Beta]_ {X}, \[Beta]01 = \
+\[Beta]_ {Y}, \[Beta]20 = \[Beta]_ {X^2}, \[Beta]11 = \[Beta]_ {XY}, \[Beta]_ \
+{21} = \[Beta]_ {X^2 Y}, \[Beta]30 = \[Beta]_ {X^3}, \[Beta]40 = \[Beta]_ \
+{X^4}, \[Beta]31 = \[Beta]_ {X^3 Y}, \[Beta]1111 = \[Beta]_ {XYXY}.\
+\>", "Text",
+ CellChangeTimes->{{3.6823086245274677`*^9, 3.6823087679347677`*^9}, 
+   3.6823115832589903`*^9}],
+
+Cell[CellGroupData[{
+
+Cell["Form of a moment matrix M", "Section",
+ CellChangeTimes->{{3.6823088090298367`*^9, 3.682308820219716*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"M", "[", 
+   RowBox[{
+   "\[Beta]00_", ",", "\[Beta]10_", ",", "\[Beta]01_", ",", "\[Beta]20_", ",",
+     "\[Beta]11_", ",", "\[Beta]21_", ",", "\[Beta]30_", ",", "\[Beta]40_", 
+    ",", "\[Beta]31_", ",", "\[Beta]1111_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "\[Beta]00", ",", "\[Beta]10", ",", "\[Beta]01", ",", "\[Beta]20", ",", 
+      "\[Beta]11", ",", "\[Beta]11", ",", 
+      RowBox[{"\[Beta]00", "-", "\[Beta]20"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "\[Beta]10", ",", "\[Beta]20", ",", "\[Beta]11", ",", "\[Beta]30", ",", 
+      "\[Beta]21", ",", "\[Beta]21", ",", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Beta]01", ",", "\[Beta]11", ",", 
+      RowBox[{"\[Beta]00", "-", "\[Beta]20"}], ",", "\[Beta]21", ",", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], ",", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], ",", 
+      RowBox[{"\[Beta]01", "-", "\[Beta]21"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "\[Beta]20", ",", "\[Beta]30", ",", "\[Beta]21", ",", "\[Beta]40", ",", 
+      "\[Beta]31", ",", "\[Beta]31", ",", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Beta]11", ",", "\[Beta]21", ",", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], ",", "\[Beta]31", ",", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], ",", "\[Beta]1111", ",", 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Beta]11", ",", "\[Beta]21", ",", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], ",", "\[Beta]31", ",", 
+      "\[Beta]1111", ",", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], ",", 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[Beta]00", "-", "\[Beta]20"}], ",", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], ",", 
+      RowBox[{"\[Beta]01", "-", "\[Beta]21"}], ",", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], ",", 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}], ",", 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}], ",", 
+      RowBox[{"\[Beta]00", "-", 
+       RowBox[{"2", " ", "\[Beta]20"}], "+", "\[Beta]40"}]}], "}"}]}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.682308554439034*^9, 3.682308614067041*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"M", "[", 
+   RowBox[{
+   "\[Beta]00", ",", "\[Beta]10", ",", "\[Beta]01", ",", "\[Beta]20", ",", 
+    "\[Beta]11", ",", "\[Beta]21", ",", "\[Beta]30", ",", "\[Beta]40", ",", 
+    "\[Beta]31", ",", "\[Beta]1111"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682308772272327*^9, 3.682308803013502*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"\[Beta]00", "\[Beta]10", "\[Beta]01", "\[Beta]20", "\[Beta]11", 
+      "\[Beta]11", 
+      RowBox[{"\[Beta]00", "-", "\[Beta]20"}]},
+     {"\[Beta]10", "\[Beta]20", "\[Beta]11", "\[Beta]30", "\[Beta]21", 
+      "\[Beta]21", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}]},
+     {"\[Beta]01", "\[Beta]11", 
+      RowBox[{"\[Beta]00", "-", "\[Beta]20"}], "\[Beta]21", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], 
+      RowBox[{"\[Beta]01", "-", "\[Beta]21"}]},
+     {"\[Beta]20", "\[Beta]30", "\[Beta]21", "\[Beta]40", "\[Beta]31", 
+      "\[Beta]31", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}]},
+     {"\[Beta]11", "\[Beta]21", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], "\[Beta]31", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], "\[Beta]1111", 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}]},
+     {"\[Beta]11", "\[Beta]21", 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], "\[Beta]31", "\[Beta]1111", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}]},
+     {
+      RowBox[{"\[Beta]00", "-", "\[Beta]20"}], 
+      RowBox[{"\[Beta]10", "-", "\[Beta]30"}], 
+      RowBox[{"\[Beta]01", "-", "\[Beta]21"}], 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}], 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}], 
+      RowBox[{"\[Beta]00", "-", 
+       RowBox[{"2", " ", "\[Beta]20"}], "+", "\[Beta]40"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.682308799959319*^9, 3.682308803616473*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Existence of a measure for M", "Section",
+ CellChangeTimes->{{3.682308855804009*^9, 3.682308865762928*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Assume \[Beta]10=\[Beta]01=\[Beta]30=\[Beta]21=0:", "Subsection",
+ CellChangeTimes->{{3.6823088699631357`*^9, 3.682308893570191*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"B", "[", "\[Alpha]_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"M", "[", 
+    RowBox[{
+    "1", ",", "0", ",", "0", ",", "\[Beta]20", ",", "\[Beta]11", ",", "0", 
+     ",", "0", ",", "\[Beta]40", ",", "\[Beta]31", ",", "\[Beta]1111"}], 
+    "]"}], "-", 
+   RowBox[{"\[Alpha]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "2", ",", "0", ",", "0", ",", "2", ",", "0", ",", "0", ",", "0"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "2", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "2", ",", "0", ",", "0", ",", "2", ",", "0", ",", "0", ",", "0"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+       "}"}]}], "}"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.682308898105836*^9, 3.682308931543394*^9}, {
+  3.682308974400853*^9, 3.682309085385063*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"B", "[", "\[Alpha]", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682309090031413*^9, 3.6823090948223886`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"1", "-", 
+       RowBox[{"2", " ", "\[Alpha]"}]}], "0", "0", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[Alpha]"}], "+", "\[Beta]20"}], 
+      "\[Beta]11", "\[Beta]11", 
+      RowBox[{"1", "-", "\[Beta]20"}]},
+     {"0", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[Alpha]"}], "+", "\[Beta]20"}], 
+      "\[Beta]11", "0", "0", "0", "0"},
+     {"0", "\[Beta]11", 
+      RowBox[{"1", "-", "\[Beta]20"}], "0", "0", "0", "0"},
+     {
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[Alpha]"}], "+", "\[Beta]20"}], "0", "0", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "\[Alpha]"}], "+", "\[Beta]40"}], 
+      "\[Beta]31", "\[Beta]31", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}]},
+     {"\[Beta]11", "0", "0", "\[Beta]31", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], "\[Beta]1111", 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}]},
+     {"\[Beta]11", "0", "0", "\[Beta]31", "\[Beta]1111", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}]},
+     {
+      RowBox[{"1", "-", "\[Beta]20"}], "0", "0", 
+      RowBox[{"\[Beta]20", "-", "\[Beta]40"}], 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}], 
+      RowBox[{"\[Beta]11", "-", "\[Beta]31"}], 
+      RowBox[{"1", "-", 
+       RowBox[{"2", " ", "\[Beta]20"}], "+", "\[Beta]40"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.682309095307186*^9}]
+}, Open  ]],
+
+Cell["\<\
+Calculating \[Alpha]0 from the proof of Theorem 7.5\
+\>", "Text",
+ CellChangeTimes->{{3.682312024413385*^9, 3.6823120412606297`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"B", "[", "\[Alpha]", "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], 
+         "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], 
+         "}"}]}], "]"}], "]"}], "]"}], "\[Equal]", "0"}], ",", "\[Alpha]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.68230915278187*^9, 3.682309187605015*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["\[Beta]11", "2"], "-", "\[Beta]20", "+", 
+       SuperscriptBox["\[Beta]20", "2"]}], 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "\[Beta]20"}], ")"}]}]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", "\[Rule]", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"\[Beta]1111", " ", 
+         SuperscriptBox["\[Beta]20", "2"]}], "+", 
+        SuperscriptBox["\[Beta]20", "3"], "-", 
+        RowBox[{"4", " ", "\[Beta]11", " ", "\[Beta]20", " ", "\[Beta]31"}], 
+        "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]31", "2"]}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]11", "2"], " ", "\[Beta]40"}], "-", 
+        RowBox[{"\[Beta]1111", " ", "\[Beta]40"}], "-", 
+        RowBox[{"\[Beta]20", " ", "\[Beta]40"}], "-", 
+        RowBox[{
+         SuperscriptBox["\[Beta]20", "2"], " ", "\[Beta]40"}], "+", 
+        SuperscriptBox["\[Beta]40", "2"]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SuperscriptBox["\[Beta]11", "2"]}], "-", "\[Beta]1111", "-", 
+          "\[Beta]20", "+", 
+          RowBox[{"2", " ", "\[Beta]1111", " ", "\[Beta]20"}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["\[Beta]20", "2"]}], "-", 
+          RowBox[{"4", " ", "\[Beta]11", " ", "\[Beta]31"}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox["\[Beta]31", "2"]}], "+", "\[Beta]40", "-", 
+          RowBox[{"\[Beta]1111", " ", "\[Beta]40"}], "-", 
+          RowBox[{"3", " ", "\[Beta]20", " ", "\[Beta]40"}], "+", 
+          SuperscriptBox["\[Beta]40", "2"]}], ")"}]}], ")"}]}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6823091793032084`*^9, 3.68230918839909*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Calculating \[Alpha]2 from the proof of Claim 1 of Theorem 7.5\
+\>", "Text",
+ CellChangeTimes->{{3.682310221993938*^9, 3.68231025080739*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"B", "[", "\[Alpha]", "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "4"}], "}"}]}], "]"}], "]"}], "]"}], "\[Equal]", 
+    "0"}], ",", "\[Alpha]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6823094353074636`*^9, 3.682309478151327*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[Beta]20", "2"], "-", "\[Beta]40"}], 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"2", " ", "\[Beta]20"}], "-", "\[Beta]40"}], ")"}]}]]}], 
+   "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.682309460906907*^9, 3.682309479609338*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Calculating \[Alpha]3 from the proof of Claim 1 of Theorem 7.5\
+\>", "Text",
+ CellChangeTimes->{{3.682310256280116*^9, 3.682310262022792*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"B", "[", "\[Alpha]", "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5"}], "}"}]}], "]"}], "]"}], "]"}], "\[Equal]", 
+    "0"}], ",", "\[Alpha]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682309549551936*^9, 3.682309552741891*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["\[Beta]11", "2"]}], "+", "\[Beta]20", "-", 
+      "\[Beta]40"}], 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Beta]20", "-", "\[Beta]40"}], ")"}]}]]}], "}"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.682309553381062*^9}]
+}, Open  ]],
+
+Cell["\<\
+Calculating \[Alpha]4 from the proof of Claim 1 of Theorem 7.5\
+\>", "Text",
+ CellChangeTimes->{{3.6823102636026373`*^9, 3.682310269992374*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"B", "[", "\[Alpha]", "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5", ",", "6"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5", ",", "6"}], "}"}]}], "]"}], "]"}], "]"}], 
+    "\[Equal]", "0"}], ",", "\[Alpha]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682309562303405*^9, 3.6823095656217823`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\[Alpha]", "\[Rule]", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "2"}], " ", 
+       SuperscriptBox["\[Beta]11", "2"]}], "+", "\[Beta]1111", "+", 
+      "\[Beta]20", "-", "\[Beta]40"}], 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Beta]1111", "+", "\[Beta]20", "-", "\[Beta]40"}], 
+       ")"}]}]]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.682309566284051*^9}]
+}, Open  ]],
+
+Cell["\<\
+Solving the system (7.6)-(7.7) in the proof of Claim 1 of Theorem 7.5\
+\>", "Text",
+ CellChangeTimes->{{3.68231027334626*^9, 3.682310273348563*^9}, {
+   3.682310349537053*^9, 3.682310366860593*^9}, 3.6823104015963173`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Reduce", "[", 
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[Beta]11", "2"], "-", "\[Beta]20", "+", 
+      SuperscriptBox["\[Beta]20", "2"]}], 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "\[Beta]20"}], ")"}]}]], "<=", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Min", "[", 
+     RowBox[{
+      FractionBox[
+       RowBox[{
+        SuperscriptBox["\[Beta]20", "2"], "-", "\[Beta]40"}], 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", 
+          RowBox[{"2", " ", "\[Beta]20"}], "-", "\[Beta]40"}], ")"}]}]], ",", 
+      
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", 
+         SuperscriptBox["\[Beta]11", "2"]}], "+", "\[Beta]20", "-", 
+        "\[Beta]40"}], 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Beta]20", "-", "\[Beta]40"}], ")"}]}]], ",", 
+      FractionBox[
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "2"}], " ", 
+         SuperscriptBox["\[Beta]11", "2"]}], "+", "\[Beta]1111", "+", 
+        "\[Beta]20", "-", "\[Beta]40"}], 
+       RowBox[{"2", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[Beta]1111", "+", "\[Beta]20", "-", "\[Beta]40"}], 
+         ")"}]}]]}], "]"}]}], "&&", 
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"M", "[", 
+       RowBox[{
+       "1", ",", "0", ",", "0", ",", "\[Beta]20", ",", "\[Beta]11", ",", "0", 
+        ",", "0", ",", "\[Beta]40", ",", "\[Beta]31", ",", "\[Beta]1111"}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", "3", "}"}], ",", 
+        RowBox[{"{", "3", "}"}]}], "]"}], "]"}], "]"}], ">", "0"}], "&&", 
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"M", "[", 
+       RowBox[{
+       "1", ",", "0", ",", "0", ",", "\[Beta]20", ",", "\[Beta]11", ",", "0", 
+        ",", "0", ",", "\[Beta]40", ",", "\[Beta]31", ",", "\[Beta]1111"}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", "5", "}"}], ",", 
+        RowBox[{"{", "5", "}"}]}], "]"}], "]"}], "]"}], ">", "0"}], "&&", 
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"M", "[", 
+       RowBox[{
+       "1", ",", "0", ",", "0", ",", "\[Beta]20", ",", "\[Beta]11", ",", "0", 
+        ",", "0", ",", "\[Beta]40", ",", "\[Beta]31", ",", "\[Beta]1111"}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"2", ",", "3"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "3"}], "}"}]}], "]"}], "]"}], "]"}], ">", "0"}], "&&", 
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"M", "[", 
+       RowBox[{
+       "1", ",", "0", ",", "0", ",", "\[Beta]20", ",", "\[Beta]11", ",", "0", 
+        ",", "0", ",", "\[Beta]40", ",", "\[Beta]31", ",", "\[Beta]1111"}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "4"}], "}"}]}], "]"}], "]"}], "]"}], ">", "0"}], "&&", 
+   RowBox[{
+    RowBox[{"Det", "[", 
+     RowBox[{
+      RowBox[{"M", "[", 
+       RowBox[{
+       "1", ",", "0", ",", "0", ",", "\[Beta]20", ",", "\[Beta]11", ",", "0", 
+        ",", "0", ",", "\[Beta]40", ",", "\[Beta]31", ",", "\[Beta]1111"}], 
+       "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5", ",", "6"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "5", ",", "6"}], "}"}]}], "]"}], "]"}], "]"}], ">",
+     "0"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.68230963376713*^9, 3.682309953235071*^9}, {
+  3.682309985818488*^9, 3.6823099872023973`*^9}, {3.6823100194002867`*^9, 
+  3.6823100205125713`*^9}, {3.682310143824843*^9, 3.6823101752364817`*^9}}],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{
+  3.682309681959886*^9, {3.682309773059832*^9, 3.682309927592793*^9}, 
+   3.68230996217661*^9, {3.682309996280961*^9, 3.682310021696878*^9}, {
+   3.6823101526344624`*^9, 3.6823101756828327`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Kernel of B(F/2G) in the notation of the proof of Theorem 7.5\
+\>", "Text",
+ CellChangeTimes->{{3.682310405612598*^9, 3.6823104384353657`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NullSpace", "[", 
+  RowBox[{"B", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Beta]1111", " ", 
+       SuperscriptBox["\[Beta]20", "2"]}], "+", 
+      SuperscriptBox["\[Beta]20", "3"], "-", 
+      RowBox[{"4", " ", "\[Beta]11", " ", "\[Beta]20", " ", "\[Beta]31"}], 
+      "+", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["\[Beta]31", "2"]}], "+", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["\[Beta]11", "2"], " ", "\[Beta]40"}], "-", 
+      RowBox[{"\[Beta]1111", " ", "\[Beta]40"}], "-", 
+      RowBox[{"\[Beta]20", " ", "\[Beta]40"}], "-", 
+      RowBox[{
+       SuperscriptBox["\[Beta]20", "2"], " ", "\[Beta]40"}], "+", 
+      SuperscriptBox["\[Beta]40", "2"]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"2", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]11", "2"]}], "-", "\[Beta]1111", "-", 
+        "\[Beta]20", "+", 
+        RowBox[{"2", " ", "\[Beta]1111", " ", "\[Beta]20"}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]20", "2"]}], "-", 
+        RowBox[{"4", " ", "\[Beta]11", " ", "\[Beta]31"}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]31", "2"]}], "+", "\[Beta]40", "-", 
+        RowBox[{"\[Beta]1111", " ", "\[Beta]40"}], "-", 
+        RowBox[{"3", " ", "\[Beta]20", " ", "\[Beta]40"}], "+", 
+        SuperscriptBox["\[Beta]40", "2"]}], ")"}]}], ")"}]}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.682310441838414*^9, 3.6823104612042723`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", 
+     ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"\[Beta]1111", " ", "\[Beta]20"}], "+", 
+        SuperscriptBox["\[Beta]20", "2"], "-", 
+        RowBox[{"2", " ", "\[Beta]11", " ", "\[Beta]31"}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]31", "2"]}], "-", 
+        RowBox[{"\[Beta]1111", " ", "\[Beta]40"}], "-", 
+        RowBox[{"2", " ", "\[Beta]20", " ", "\[Beta]40"}], "+", 
+        SuperscriptBox["\[Beta]40", "2"]}], 
+       RowBox[{
+        RowBox[{"\[Beta]11", " ", "\[Beta]20"}], "-", "\[Beta]31", "+", 
+        RowBox[{"\[Beta]20", " ", "\[Beta]31"}], "-", 
+        RowBox[{"\[Beta]11", " ", "\[Beta]40"}]}]]}], ",", "0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"2", " ", 
+         SuperscriptBox["\[Beta]11", "2"]}], "-", "\[Beta]1111", "-", 
+        "\[Beta]20", "+", 
+        RowBox[{"\[Beta]1111", " ", "\[Beta]20"}], "+", 
+        SuperscriptBox["\[Beta]20", "2"], "-", 
+        RowBox[{"2", " ", "\[Beta]11", " ", "\[Beta]31"}], "+", "\[Beta]40", 
+        "-", 
+        RowBox[{"\[Beta]20", " ", "\[Beta]40"}]}], 
+       RowBox[{
+        RowBox[{"\[Beta]11", " ", "\[Beta]20"}], "-", "\[Beta]31", "+", 
+        RowBox[{"\[Beta]20", " ", "\[Beta]31"}], "-", 
+        RowBox[{"\[Beta]11", " ", "\[Beta]40"}]}]]}], ",", "1", ",", "1", ",",
+      "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.68231045532349*^9, 3.682310462587288*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 715},
+WindowMargins->{{14, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 222, 5, 125, "Title"],
+Cell[804, 29, 421, 7, 30, "Text"],
+Cell[CellGroupData[{
+Cell[1250, 40, 112, 1, 80, "Section"],
+Cell[1365, 43, 2350, 52, 80, "Input"],
+Cell[CellGroupData[{
+Cell[3740, 99, 357, 7, 28, "Input"],
+Cell[4100, 108, 2074, 47, 131, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6223, 161, 113, 1, 80, "Section"],
+Cell[CellGroupData[{
+Cell[6361, 166, 139, 1, 44, "Subsection"],
+Cell[6503, 169, 1390, 41, 63, "Input"],
+Cell[CellGroupData[{
+Cell[7918, 214, 166, 3, 28, "Input"],
+Cell[8087, 219, 1976, 53, 131, "Output"]
+}, Open  ]],
+Cell[10078, 275, 143, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[10246, 282, 562, 16, 28, "Input"],
+Cell[10811, 300, 1955, 49, 80, "Output"]
+}, Open  ]],
+Cell[12781, 352, 151, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[12957, 359, 467, 14, 28, "Input"],
+Cell[13427, 375, 433, 13, 51, "Output"]
+}, Open  ]],
+Cell[13875, 391, 152, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[14052, 398, 465, 14, 28, "Input"],
+Cell[14520, 414, 393, 13, 51, "Output"]
+}, Open  ]],
+Cell[14928, 430, 154, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[15107, 437, 487, 14, 28, "Input"],
+Cell[15597, 453, 466, 14, 51, "Output"]
+}, Open  ]],
+Cell[16078, 470, 232, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[16335, 478, 3821, 111, 144, "Input"],
+Cell[20159, 591, 248, 4, 28, "Output"]
+}, Open  ]],
+Cell[20422, 598, 153, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[20600, 605, 1523, 37, 79, "Input"],
+Cell[22126, 644, 1654, 40, 80, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
